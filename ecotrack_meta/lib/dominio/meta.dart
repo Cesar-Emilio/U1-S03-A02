@@ -2,17 +2,12 @@ const metaInicial = 100.0;
 const pasoMeta = 10.0;
 const metaMinima = 10.0;
 
-const valorActual = 0;
-
 double ajustarMeta(double actual, double cambio) {
-  const metaTemp = actual + cambio;
-  if (metaTemp < metaMinima) {
-    return 0;
-  }
-
-
+  final nueva = actual + cambio;
+  return nueva < metaMinima ? metaMinima : nueva;
 }
 
 double avanceDeMeta({required double total, required double meta}) {
-
+  if (meta <= 0) return total > 0 ? 1.0 : 0.0;
+  return (total / meta).clamp(0, 1).toDouble();
 }

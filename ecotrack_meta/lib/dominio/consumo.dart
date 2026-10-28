@@ -1,5 +1,7 @@
 const laboratoriosUtez = ['Lab Química', 'Lab Redes', 'Lab Física'];
 
+const litrosMaximos = 10000;
+
 class Consumo {
   const Consumo({required this.laboratorio, required this.litros});
   final String laboratorio;
@@ -7,14 +9,12 @@ class Consumo {
 }
 
 String? validarLitros(double? litros) {
-  const litrosMaximos = 10000;
-
   if (litros == null) {
-    return "Los litros no pueden ser nulos";
+    return 'Escribe los litros con número';
   } else if (litros <= 0) {
-    return "Los litros no pueden ser igual o menor a 0";
+    return 'Los litros deben ser mayores que cero';
   } else if (litros > litrosMaximos) {
-    return "Los litros no pueden ser mayor a ${litrosMaximos}";
+    return 'Los litros superan el tope de $litrosMaximos';
   }
 
   return null;
